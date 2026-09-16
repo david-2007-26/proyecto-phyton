@@ -4,12 +4,18 @@ historial = []
 
  # FUNCIONES PARA AGREGAR EJERCICIO
 def agreagr_ejercicio():
+    semana=int(input("ingrese la semaan: ")),
+    nombre=input("imgrese el nombre del ejercicio: "),
+    series=int(input("imgrese las series: ")),
+    repeticiones=int(input("ingrse las repeticiones. ")),
+    peso=float(input("ingrse el peso en kg"))
+
     ejercicio = {
-        "semana":int(input("ingrese la semaan: ")),
-        "nombre":input("imgrese el nombre del ejercicio: "),
-        "series":int(input("imgrese las series: ")),
-        "repeticiones":int(input("ingrse las repeticiones. ")),
-        "peso kg":float(input("ingrse el peso en kg")) 
+        "semana":semana,
+        "nombre":nombre,
+        "series":series,
+        "repeticiones":repeticiones,
+        "peso":peso 
 
 
     }
@@ -23,7 +29,12 @@ def ver_historial():
     else:
         print("historial semanal: ")   
         for ejercicio in historial:
-            print(ejercicio)
+            print("ejercicio:",ejercicio["nombre"])
+            print("series:",ejercicio ["series"])
+            print("repeticiones:",ejercicio["repeticiones"])
+            print("peso:",ejercicio["peso"],"kg")
+
+
 print("======================================")         
   
 
@@ -34,10 +45,10 @@ def calcular_pogreso():
     else:
         mayor = historial [0]
         for ejercicio in historial:
-            if ejercicio [3]> mayor[3]:
-                mayor = jercicio
-        print("mayor peso levantado:",mayor[3],"kg")
-        print("ejercicio",mayor[0])
+            if ejercicio ["peso"]>mayor["peso"]:
+                mayor=ejercicio 
+        print("mayor peso levantado:",mayor["peso"],"kg")
+        print("nombre",mayor["nombre"])
 
     
 
@@ -46,11 +57,11 @@ def buscar_ejercicio():
     buscar = input ("ingrese e1l ejercicio que deseas buscar: ")
     encontrado = False 
     for ejercicio in historial:
-        if ejercicio[0]:           
-            print("ejercicio encontrado: ")
-            print("series:",ejercicio[1])
-            print("repeticiones:",ejercicio[2])
-            print("peso",ejercicio[3],"kg")
+        if ejercicio["nombre"]:        
+            print("ejercicio encontrado")
+            print("series:",ejercicio["series"])
+            print("repeticiones:",ejercicio["repeticiones"])
+            print("peso",ejercicio["peso"],"kg")
             encontrado = True
         if encontrado == False:
             print("ejercicio no encontrado: ")     
